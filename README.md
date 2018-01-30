@@ -22,7 +22,7 @@ object Main {
 }
 ```
 ----------
-##### String interpolation
+#### String interpolation
 ```kotlin
 val dummyVal = 56
 val dummyUser = User(name="Foo") 
