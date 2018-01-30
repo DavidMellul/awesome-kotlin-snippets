@@ -230,7 +230,58 @@ infix fun Int.power(b: Int): Int {
 
 print(2 power 10) // Produces 1024
 ```
+----------
+#### Higher-order functions aka functions passed as parameters
+```kotlin
+fun logCallTo(function: () -> Unit) { // () -> Unit means the function given as parameter should not have any parameter, and should return nothing 
+   print("Log: ----------- The function is about to start ----------\n")
+   function()
+   print("Log: ----------- The function ended correctly ------------\n")
+}
 
+fun wut() = print("Hello there ! I'm wut function\n")
+
+logCallTo { wut() } 
+
+/* Output :
+			Log: ----------- The function is about to start ----------
+			Hello there ! I'm wut function
+			Log: ----------- The function ended correctly ------------
+*/
+```
+----------
+#### Measure time elapsed  during function execution 
+```kotlin
+fun longTreatment() {
+	   for (i in 0..10000000000) {
+	       // Nothing, just keep running
+	   }
+}
+
+// This function is part of the Kotlin Standard Library
+print(measureTimeMillis { longTreatment() }) // Produces 4323 ms
+```
+----------
+#### Declare a Matrix / 2D Array
+```kotlin
+inline fun <reified T> matrix(height: Int, width: Int, initialize: () -> T) = Array(height) { Array(width) { initialize() } }
+
+val board = matrix(5, 5) { 0 }
+
+board.forEach { row ->
+    row.forEach { column ->
+        print("$column ")
+    }
+    print("|\n")
+}
+/* Output : 
+			0 0 0 0 0 |
+			0 0 0 0 0 |
+			0 0 0 0 0 |
+			0 0 0 0 0 |
+			0 0 0 0 0 |    
+*/        
+```
 ## Contributing
 
 Feel free to open issues and pull requests so that this repository becomes even more useful ! 
