@@ -159,6 +159,7 @@ if(numbers.any { it > 4 } )
 
 // Output : At least one element > 4
 ```
+----------
 #### Retrieve the first element of a list matching conditions
 ```kotlin
 val animals = listOf("black tiger", "white tiger", "red tiger", "golden tiger", "fish", "lion", "cat", "dog")
@@ -169,6 +170,20 @@ print(firstTiger)
 
 // Output : black tiger
 ```
+----------
+#### Variable conditional assignation
+```kotlin
+val a = 5
+
+val x = when(a) {
+	1 -> "a is equal to 1"
+	3 -> "wut ?"
+	else -> "a is a big int"
+}
+
+// x = "a is a big int", because of a = 5 
+```
+----------
 #### Human-readable for loops
 ```kotlin
 for (i in 1..5)
@@ -180,8 +195,8 @@ for (i in 1 until 5)
 for (i in listOf("foo","bar","baz"))
 	print(i) // Produces foobarbaz
 ```
-
 ----------
+
 ## Contributing
 
 Feel free to open issues and pull requests so that this repository becomes even more useful ! 
@@ -190,4 +205,4 @@ Kotlin is a rich and powerful language, you're encouraged to share your valuable
 
 **It will help a lot of newcomers and experienced developers too**
 
-Take a look to CONTRIBUTE.md so that your PRs are easily added  and respect basic guidelines so that everything is cool and easy to re-use.
+Take a look at CONTRIBUTE.md so that your PRs are easily added  and respect basic guidelines so that everything is cool and easy to re-use.
