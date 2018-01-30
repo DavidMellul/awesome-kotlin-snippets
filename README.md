@@ -1,4 +1,5 @@
 
+
 <p align="center"><img width="300" height="300" margin="auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin-logo.svg/2000px-Kotlin-logo.svg.png" /></p>
 
 # Awesome-Kotlin-Snippets [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
@@ -196,6 +197,39 @@ for (i in listOf("foo","bar","baz"))
 	print(i) // Produces foobarbaz
 ```
 ----------
+#### Extend an existing object with your own function
+```kotlin
+fun Int.power(b: Int): Int { 
+    var tmpInt = this
+    
+    if (b == 0) 
+        return 1
+
+    for (i in 1 until b)
+        tmpInt *= this
+
+    return tmpInt
+}
+
+print(2.power(10)) // Produces 1024
+```
+----------
+#### Use infix notation to have a more readable and beautiful code
+```kotlin
+infix fun Int.power(b: Int): Int { 
+    var tmpInt = this
+    
+    if (b == 0) 
+        return 1
+
+    for (i in 1 until b)
+        tmpInt *= this
+
+    return tmpInt
+}
+
+print(2 power 10) // Produces 1024
+```
 
 ## Contributing
 
@@ -206,3 +240,10 @@ Kotlin is a rich and powerful language, you're encouraged to share your valuable
 **It will help a lot of newcomers and experienced developers too**
 
 Take a look at CONTRIBUTE.md so that your PRs are easily added  and respect basic guidelines so that everything is cool and easy to re-use.
+
+## Disclaimer
+
+This repository does not aim to replace the original Kotlin documentation at all ! It has been created only to provide a centralized place for common useful snippets we're all searching for :unicorn: :sparkles:
+
+The official Kotlin documentation is very nice, you should give it a look : 
+<a href="https://kotlinlang.org/docs/reference/">https://kotlinlang.org/docs/reference/</a>
