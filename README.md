@@ -201,6 +201,16 @@ for (i in 1..5 step 2)
 
 for (i in listOf("foo","bar","baz"))
 	print(i) // Produces foobarbaz
+
+for ( (ingredient,quantity) in hashMapOf("apple" to 3, "steak" to 8, "milk" to 3) )
+           print("There are $quantity $ingredient(s) in this cart\n")
+
+/* Last output : 
+		There are 8 steak(s) in this cart
+		There are 3 milk(s) in this cart
+		There are 3 apple(s) in this cart
+*/
+
 ```
 ----------
 #### Extend an existing object with your own function
@@ -378,6 +388,39 @@ operator fun Int.not(): Int {  // operator overloaded : !
 
 print(!5) // Produces 120
 ```
+----------
+#### Using an object as a context
+```kotlin
+val toto = User(name="Toto", age=18)
+
+with(toto) {
+	print(name) 	// First syntax, omit 'toto' and omit 'this'
+	print(this.age) // Yay ! Second syntax
+}
+```
+#### Cool syntactic sugars
+```kotlin
+/*************************************************************/
+val cart = hashMapOf("apple" to 3, "steak" to 8, "milk" to 3)
+
+// You can use the '_' wildcard for parameters you don't use
+val vegetables = cart.filter { (key,_) -> "steak" !in key }
+
+/*************************************************************/
+fun logExecution(a: Int, b: String, f: () -> Unit) {
+	// Code
+}
+
+// If a function is passed as the last parameter of a higher-order function, you can write it like this
+logExecution(3,"dummy string") { print("Hello !" } 
+
+// Instead of (inside parenthesis)
+logExecution(3, "dummy string", { print("Hello !") } )
+
+/*************************************************************/
+Incoming <3
+```
+
 ## Contributing
 
 Feel free to open issues and pull requests so that this repository becomes even more useful ! 
