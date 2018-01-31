@@ -266,7 +266,7 @@ logCallTo { wut() }
 */
 ```
 ----------
-#### Design pattern Strategy thanks to higher-order functions
+#### Design pattern Strategy 
 
 ```kotlin
 abstract class TextFormattingStrategy {
