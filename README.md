@@ -76,10 +76,10 @@ batman?.sayHello() // Nothing happens, no error, nothing.
 val weights = hashMapOf("Foo" to 68, "Bar" to 30, "Baz" to 10)
 
 // Ascending order
-val sortedWeightsAsc = weights.toList().sortedBy { (key,value) -> value }.toMap()
+val sortedWeightsAsc = weights.toList().sortedBy { (key,value) -> value } 
 
 // Descending order
-val sortedWeightsDesc = weights.toList().sortedByDescending { (key,value) -> value }.toMap()
+val sortedWeightsDesc = weights.toList().sortedByDescending { (key,value) -> value }
 ```
 
 
