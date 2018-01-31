@@ -166,7 +166,7 @@ if(numbers.any { it > 4 } )
 val animals = listOf("black tiger", "white tiger", "red tiger", "golden tiger", "fish", "lion", "cat", "dog")
 val firstTiger = animals.first { it.contains("tiger") }
 
-// You can replace firt with firstOrNull, self-explanatory
+// You can replace first with firstOrNull, self-explanatory
 print(firstTiger)
 
 // Output : black tiger
