@@ -42,9 +42,9 @@ print("The name of dummyUser is ${dummyUser.name}")
 ----------
 #### Execute block of code if not null
 ```kotlin
-val Alfred = User(name="Alfred")
+val alfred = User(name="Alfred")
 
-Alfred?.let {
+alfred?.let {
 	// Alfred is not null in this block of code
 	// You can access Alfred instance with 'it' keyword
 	print("My name is ${it.name}")
@@ -56,11 +56,11 @@ Alfred?.let {
 ----------
 #### Call object function if not null
 ```kotlin
-val Alfred = User(name="Alfred")
-val Batman: User? = null
+val alfred = User(name="Alfred")
+var batman: User? = null
 
-Alfred?.sayHello() // Produces "Hello ! I'm Alfred"
-Batman?.sayHello() // Nothing happens, no error, nothing.
+alfred?.sayHello() // Produces "Hello ! I'm Alfred"
+batman?.sayHello() // Nothing happens, no error, nothing.
 ```
 ----------
 #### Get variable's value or other if the variable is null
@@ -250,6 +250,11 @@ logCallTo { wut() }
 */
 ```
 ----------
+#### Design pattern Strategy thanks to higher-order functions
+
+incoming in 20 mins hahaha
+
+----------
 #### Measure time elapsed  during function execution 
 ```kotlin
 fun longTreatment() {
@@ -274,6 +279,7 @@ board.forEach { row ->
     }
     print("|\n")
 }
+
 /* Output : 
 			0 0 0 0 0 |
 			0 0 0 0 0 |
@@ -282,6 +288,47 @@ board.forEach { row ->
 			0 0 0 0 0 |    
 */        
 ```
+
+
+----------
+#### Declare a class in charge of holding data solely
+```kotlin
+data class User(val name: String, val age: Int)
+
+// Notice that in Kotlin the 'new' keyword doesn't exist
+val toto = User("Toto", 18)
+
+// You can initialize objects with named arguments
+val foo = User(name = "Foo", age = 19)
+
+// You can access members of those objects directly
+print("Hello, I'm ${toto.name}\n")
+print("I'm his friend ! ${foo.name} - ${foo.age}yo !")
+
+/* Output :
+			Hello, I'm Toto
+			I'm his friend ! Foo - 19yo !
+*/
+```
+----------
+#### Declare a singleton
+```kotlin
+data class User(val name: String, val age: Int)
+
+object UserFactory { // Practice design patterns while learning Kotlin <3
+	val userList: ArrayList<User> = ArrayList()
+
+	fun createUser(name: String, age: Int): User {
+	    val createdUser = User(name, age)
+	    userList.add(createdUser)
+	    return createdUser
+	}
+}
+
+// Notice that UserFactory is called without having been instantiated before with something like 'val uf = UserFactory()'
+val foo = UserFactory.createUser("Foo",18)
+``` 
+
 ## Contributing
 
 Feel free to open issues and pull requests so that this repository becomes even more useful ! 
@@ -290,7 +337,7 @@ Kotlin is a rich and powerful language, you're encouraged to share your valuable
 
 **It will help a lot of newcomers and experienced developers too**
 
-Take a look at CONTRIBUTE.md so that your PRs are easily added  and respect basic guidelines so that everything is cool and easy to re-use.
+Take a look at [CONTRIBUTE.md](CONTRIBUTE.md) so that your PRs are easily added  and respect basic guidelines so that everything is cool and easy to re-use.
 
 ## Disclaimer
 
