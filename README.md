@@ -252,7 +252,39 @@ logCallTo { wut() }
 ----------
 #### Design pattern Strategy thanks to higher-order functions
 
-incoming in 20 mins hahaha
+```kotlin
+abstract class TextFormattingStrategy {
+    abstract fun format(text: String): String
+}
+
+
+class UnderlineStrategy : TextFormattingStrategy() {
+    override fun format(text: String): String {
+        return "<u>$text</u>"
+    }
+}
+
+class BoldStrategy : TextFormattingStrategy() {
+    override fun format(text: String): String {
+        return "<strong>$text</strong>"
+    }
+}
+
+class ItalicStrategy : TextFormattingStrategy() {
+	// You can use this syntax too
+    override fun format(text: String): String = "<i>$text</i>" 
+}
+
+fun format(text: String, strategy: TextFormattingStrategy): String {
+    return strategy.format(text)
+}
+
+val text = "Awesome text !"
+
+print(format(text, UnderlineStrategy())) // Produces <u>Awesome text !</u>
+print(format(text, BoldStrategy()))      // Produces <strong>Awesome text !</strong>
+print(format(text, ItalicStrategy()))    // Produces <i>Awesome text !</i>
+```
 
 ----------
 #### Measure time elapsed  during function execution 
