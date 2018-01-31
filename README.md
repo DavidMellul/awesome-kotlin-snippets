@@ -193,6 +193,12 @@ for (i in 1..5)
 for (i in 1 until 5)
 	print(i) // Produces 1234
 
+for (i in 5 downTo 1)
+	print(i) // Produces 54321
+
+for (i in 1..5 step 2)
+	print(i) // Produces 135
+
 for (i in listOf("foo","bar","baz"))
 	print(i) // Produces foobarbaz
 ```
@@ -285,7 +291,6 @@ print(format(text, UnderlineStrategy())) // Produces <u>Awesome text !</u>
 print(format(text, BoldStrategy()))      // Produces <strong>Awesome text !</strong>
 print(format(text, ItalicStrategy()))    // Produces <i>Awesome text !</i>
 ```
-
 ----------
 #### Measure time elapsed  during function execution 
 ```kotlin
@@ -313,11 +318,11 @@ board.forEach { row ->
 }
 
 /* Output : 
-			0 0 0 0 0 |
-			0 0 0 0 0 |
-			0 0 0 0 0 |
-			0 0 0 0 0 |
-			0 0 0 0 0 |    
+		0 0 0 0 0 |
+		0 0 0 0 0 |
+		0 0 0 0 0 |
+		0 0 0 0 0 |
+		0 0 0 0 0 |    
 */        
 ```
 
@@ -360,7 +365,19 @@ object UserFactory { // Practice design patterns while learning Kotlin <3
 // Notice that UserFactory is called without having been instantiated before with something like 'val uf = UserFactory()'
 val foo = UserFactory.createUser("Foo",18)
 ``` 
+----------
+#### Operator overloading
+See full reference at : [Kotlin overloading operators reference](https://kotlinlang.org/docs/reference/operator-overloading.html) :thumbsup:
+```kotlin
+operator fun Int.not(): Int {  // operator overloaded : !
+    var tmpInt = 1
+    for (i in 1..this) // Basic factorial implementation
+        tmpInt *= i
+    return tmpInt
+}
 
+print(!5) // Produces 120
+```
 ## Contributing
 
 Feel free to open issues and pull requests so that this repository becomes even more useful ! 
