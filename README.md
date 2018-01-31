@@ -398,6 +398,7 @@ with(toto) {
 	print(this.age) // Yay ! Second syntax
 }
 ```
+----------
 #### Cool syntactic sugars
 ```kotlin
 /*************************************************************/
