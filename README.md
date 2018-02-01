@@ -16,12 +16,20 @@ A curated list of awesome Kotlin snippets for beginners and advanced developers 
 
 #### Equivalent of Java's main function
 ```kotlin
+// This syntax is possible
+fun main(vararg argv:String) {
+   // Your code
+}
+
+// This one also
 object Main {
     @JvmStatic
     fun main(args: Array<String>) {
         // Your code
     }
 }
+
+// The concept is to have a fun main(string array)
 ```
 ----------
 #### String interpolation
