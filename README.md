@@ -426,9 +426,31 @@ logExecution(3,"dummy string") { print("Hello !" }
 // Instead of (inside parenthesis)
 logExecution(3, "dummy string", { print("Hello !") } )
 
-/*************************************************************/
-Incoming <3
 ```
+----------
+
+#### Repository pattern +inject object manually using default value
+```kotlin
+
+val operationsRepo  : OperationsRepository by lazy {
+    OperationsRepository()
+}
+
+class OperationsRepository(){
+
+  fun sum(x: Int, y: Int) = x + y 
+  fun minus(x: Int, y: Int) = x - y 
+  
+}
+
+fun main() {
+    val repo : OperationsRepository = operationsRepo                        
+    val sumResult = repo.sum(4, 5)             
+    println("sumResult: $sumResult") // output 9
+}
+```
+----------
+Incoming <3
 
 ## Contributing
 
